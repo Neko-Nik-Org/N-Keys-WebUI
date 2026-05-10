@@ -1,13 +1,21 @@
 import { Link } from 'react-router-dom'
+import SeoMeta from '../components/SeoMeta'
 
 function HomePage() {
   return (
     <>
+      <SeoMeta
+        title="Secure Environment Variable Sync"
+        description="N-Keys helps teams securely sync environment variables and config files across servers, including Docker Compose and raw env var workflows, with CLI or cURL access and API key authentication."
+      />
+
       <section className="hero container">
-        <h1>Secure environment variables without the mess.</h1>
+        <h1>Securely Sync & Manage env vars and config files across servers</h1>
         <p>
-          Manage and sync environment variables securely across projects, servers,
-          and deployments. Built for teams that move fast.
+          Manage environment variables and config files globally in one place.
+          Use our CLI tool or cURL directly with simple API key authentication,
+          including Docker Compose and raw env var workflows or server-to-server sync,
+          and keep every deployment stage in sync.
         </p>
         <div className="hero-actions">
           <Link className="button button-primary" to="/waitlist">
@@ -23,20 +31,24 @@ function HomePage() {
           </a>
         </div>
 
-        <article className="mock-card" aria-label="N-Keys sample project configuration">
-          <h2>Project: API Service</h2>
+        <Link to="/features" className="button button-explore" to="/features">
+          Explore More Features
+        </Link>
+
+        <article className="mock-card" aria-label="N-Keys sample environment synchronization state">
+          <h2>Project: Core API Cluster</h2>
           <ul>
             <li>
-              <span>Environment</span>
-              <strong>Production</strong>
+              <span>Active stage</span>
+              <strong>prod-eu-west</strong>
             </li>
             <li>
-              <span>Secrets synced</span>
-              <strong>12</strong>
+              <span>Configs + env vars synced</span>
+              <strong>148</strong>
             </li>
             <li>
-              <span>Last update</span>
-              <strong>2 min ago</strong>
+              <span>Last secure sync</span>
+              <strong>just now</strong>
             </li>
           </ul>
         </article>
@@ -44,24 +56,24 @@ function HomePage() {
 
       <section className="container section">
         <div className="section-head">
-          <h2>Why choose N-Keys?</h2>
+          <h2>Built for teams handling complex environments</h2>
           <p>
-            N-Keys helps teams start quickly, keep secrets organized, and reduce
-            config mistakes across environments.
+            N-Keys is designed for fast-moving teams where env and config sprawl
+            becomes painful across dev, staging, production, and custom stages.
           </p>
         </div>
         <div className="simple-grid">
           <article className="card">
-            <h3>Quick setup</h3>
-            <p>Connect your first project in minutes and share environment access safely without friction.</p>
+            <h3>Docker Compose and raw env ready</h3>
+            <p>Use N-Keys directly with Docker Compose files and raw env var pipelines without changing your existing workflow.</p>
           </article>
           <article className="card">
-            <h3>Safer collaboration</h3>
-            <p>Keep sensitive values out of chat, notes, and local files. No more accidental leaks.</p>
+            <h3>Stage-aware by design</h3>
+            <p>Manage prod, dev, staging, and custom stage names with clear isolation and simple promotion flows.</p>
           </article>
           <article className="card">
-            <h3>Clear visibility</h3>
-            <p>Know who changed what and when with lightweight, easy-to-read activity tracking.</p>
+            <h3>Rust-backed security</h3>
+            <p>Keys are protected with Argon2 and built on a pure Rust backend focused on reliability and performance.</p>
           </article>
         </div>
       </section>

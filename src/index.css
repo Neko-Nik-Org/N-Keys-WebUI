@@ -277,6 +277,16 @@ main {
   border-color: rgba(2, 181, 184, 0.3);
 }
 
+.button-explore {
+  color: var(--brand-primary);
+  background: none;
+  border-color: transparent;
+}
+
+.button-explore:hover {
+  background: rgba(2, 181, 184, 0.08);
+}
+
 .hero {
   text-align: center;
   padding-top: var(--space-16);
@@ -292,7 +302,7 @@ main {
   font-size: clamp(2rem, 5vw, 3.4rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  max-width: 15ch;
+  max-width: 26ch;
   background: linear-gradient(135deg, var(--text) 50%, var(--brand-primary) 130%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

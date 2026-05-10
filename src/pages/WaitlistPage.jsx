@@ -1,11 +1,17 @@
 import PageHeader from '../components/PageHeader'
+import SeoMeta from '../components/SeoMeta'
 
 function WaitlistPage() {
   return (
     <>
+      <SeoMeta
+        title="Waitlist"
+        description="Join the N-Keys waitlist for secure env var and config sync powered by Rust, Argon2 key protection, CLI/cURL access, and economical pricing for teams."
+      />
+
       <PageHeader
         title="Join the Waitlist"
-        subtitle="Be among the first to try N-Keys and shape the product direction."
+        subtitle="Get early access to secure env var and config sync for multi-stage team deployments."
       />
 
       <section className="container section section-tight">
@@ -24,7 +30,7 @@ function WaitlistPage() {
               Join Waitlist
             </button>
           </form>
-          <p className="support-text">Early users will get priority access.</p>
+          <p className="support-text">Early users get priority onboarding and early economical pricing.</p>
         </article>
       </section>
     </>

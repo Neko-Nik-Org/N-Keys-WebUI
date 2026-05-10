@@ -1,11 +1,17 @@
 import PageHeader from '../components/PageHeader'
+import SeoMeta from '../components/SeoMeta'
 
 function ContactPage() {
   return (
     <>
+      <SeoMeta
+        title="Contact"
+        description="Contact the N-Keys team to discuss secure environment variable and config management across servers, or book a meeting for onboarding and pricing guidance."
+      />
+
       <PageHeader
         title="Contact"
-        subtitle="Share your use case, and we will follow up quickly."
+        subtitle="Tell us how your team manages env vars today and we will help you plan a safer workflow."
       />
 
       <section className="container section section-tight">
@@ -13,7 +19,7 @@ function ContactPage() {
           <article className="card">
             <h2>Contact me <span role="img" aria-label="email">📧</span></h2>
             <p>
-              Email me directly at <a href="mailto:nikhil@nekonik.com">nikhil@nekonik.com</a>
+              Email directly at <a href="mailto:nikhil@nekonik.com">nikhil@nekonik.com</a> for product, security, or pricing questions.
             </p>
 
             <form className="form" onSubmit={(event) => event.preventDefault()}>
@@ -35,7 +41,7 @@ function ContactPage() {
           <article className="card">
             <h2>Book a Meet <span role="img" aria-label="calendar">📅</span></h2>
 
-            <p>Feel free to book a meeting directly with me to discuss your use case or even just say hi!</p>
+            <p>Book a short call to review your environment stages, migration plan, and rollout timeline.</p>
 
             <div className="calendar-placeholder" role="img" aria-label="Calendar integration placeholder">
                 <div className="calendly-widget">
