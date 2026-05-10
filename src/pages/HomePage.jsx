@@ -31,7 +31,7 @@ function HomePage() {
           </a>
         </div>
 
-        <Link to="/features" className="button button-explore" to="/features">
+        <Link to="/features" className="button button-explore">
           Explore More Features
         </Link>
 
