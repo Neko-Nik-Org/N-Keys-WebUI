@@ -7,7 +7,7 @@ function HomePage() {
         <h1>Secure environment variables without the mess.</h1>
         <p>
           Manage and sync environment variables securely across projects, servers,
-          and deployments.
+          and deployments. Built for teams that move fast.
         </p>
         <div className="hero-actions">
           <Link className="button button-primary" to="/waitlist">
@@ -15,7 +15,7 @@ function HomePage() {
           </Link>
           <a
             className="button button-secondary"
-            href="https://calendly.com/your-name/n-keys-intro"
+            href="https://calendly.com/neko-nik/general-meet"
             target="_blank"
             rel="noreferrer"
           >
@@ -44,7 +44,7 @@ function HomePage() {
 
       <section className="container section">
         <div className="section-head">
-          <h2>Built for fast team onboarding</h2>
+          <h2>Why choose N-Keys?</h2>
           <p>
             N-Keys helps teams start quickly, keep secrets organized, and reduce
             config mistakes across environments.
@@ -53,15 +53,15 @@ function HomePage() {
         <div className="simple-grid">
           <article className="card">
             <h3>Quick setup</h3>
-            <p>Connect your first project in minutes and share environment access safely.</p>
+            <p>Connect your first project in minutes and share environment access safely without friction.</p>
           </article>
           <article className="card">
             <h3>Safer collaboration</h3>
-            <p>Keep sensitive values out of chat, notes, and local files.</p>
+            <p>Keep sensitive values out of chat, notes, and local files. No more accidental leaks.</p>
           </article>
           <article className="card">
             <h3>Clear visibility</h3>
-            <p>Know who changed what and when with lightweight activity tracking.</p>
+            <p>Know who changed what and when with lightweight, easy-to-read activity tracking.</p>
           </article>
         </div>
       </section>

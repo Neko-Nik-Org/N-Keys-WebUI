@@ -33,19 +33,20 @@ function ContactPage() {
           </article>
 
           <article className="card">
-            <h2>Book a Meet</h2>
-            <p>Prefer a short call? Pick a time that works for you.</p>
-            <a
-              className="button button-primary"
-              href="https://calendly.com/your-name/n-keys-intro"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Book a Meet
-            </a>
+            <h2>Book a Meet <span role="img" aria-label="calendar">📅</span></h2>
+
+            <p>Feel free to book a meeting directly with me to discuss your use case or even just say hi!</p>
 
             <div className="calendar-placeholder" role="img" aria-label="Calendar integration placeholder">
-              Calendar integration placeholder
+                <div className="calendly-widget">
+                  <iframe
+                    title="Calendly scheduling"
+                    src="https://calendly.com/neko-nik/general-meet"
+                    width="100%"
+                    height="500"
+                    frameBorder="0"
+                  ></iframe>
+                </div>
             </div>
           </article>
         </div>
