@@ -11,9 +11,9 @@ function ContactPage() {
       <section className="container section section-tight">
         <div className="contact-grid">
           <article className="card">
-            <h2>Contact us</h2>
+            <h2>Contact me <span role="img" aria-label="email">📧</span></h2>
             <p>
-              Email us at <a href="mailto:hello@n-keys.dev">hello@n-keys.dev</a>
+              Email me directly at <a href="mailto:nikhil@nekonik.com">nikhil@nekonik.com</a>
             </p>
 
             <form className="form" onSubmit={(event) => event.preventDefault()}>

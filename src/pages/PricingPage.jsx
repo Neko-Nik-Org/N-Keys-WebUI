@@ -74,6 +74,7 @@ function PricingPage() {
           <h2>Detailed comparison</h2>
           <p>Compare features across all plans to find the right fit for your team.</p>
         </div>
+        <div className="table-scroll">
         <table className="comparison-table">
           <thead>
             <tr>
@@ -118,6 +119,7 @@ function PricingPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
     </>
   )
