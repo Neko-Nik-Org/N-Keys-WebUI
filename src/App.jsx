@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import SiteLayout from './components/SiteLayout'
-import ContactPage from './pages/ContactPage'
 import FeaturesPage from './pages/FeaturesPage'
-import HomePage from './pages/HomePage'
-import PricingPage from './pages/PricingPage'
 import WaitlistPage from './pages/WaitlistPage'
+import ContactPage from './pages/ContactPage'
+import PricingPage from './pages/PricingPage'
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
