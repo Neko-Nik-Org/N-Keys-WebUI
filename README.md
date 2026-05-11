@@ -1,22 +1,62 @@
-# N-Key-WebUI
+# N-Keys Web UI
 
-Web UI for Neko Nik Keys and Env sync tool SaaS
+N-Keys is a developer-focused platform to securely manage and sync environment variables and configuration data across servers and stages.
 
-# React + Vite
+This repository currently contains the web application (marketing + onboarding surface), and is planned to evolve into dashboard and payments-related flows. But still keeping all open-source and public.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Product Direction
 
-Currently, two official plugins are available:
+N-Keys focuses on:
+- Secure, encrypted environment variable management.
+- Dashboard management of secrets and configuration.
+- Secure server-to-server environment sync too.
+- Docker Compose and raw env-var workflows.
+- CLI and cURL-friendly operations.
+- API key-based authentication.
+- Stage-aware config management (prod/dev/staging/custom names).
+- Rust-first backend with Argon2-based key protection.
+- Economical pricing for teams.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React 19
+- React Router 7
+- Vite 8
+- ESLint 10
+- Wrangler (Cloudflare deploy flow)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Local Development
 
-Note: This will impact Vite dev & build performances.
+Prerequisites:
+- Node.js 20+
+- npm
 
-## Expanding the ESLint configuration
+Install and run:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Build and lint:
+
+```bash
+npm run lint
+npm run build
+```
+
+Preview/deploy scripts:
+
+```bash
+npm run preview
+npm run deploy
+```
+
+## Contribution Guidelines
+
+For contributions, please follow the guidelines below to ensure code quality, security, and maintainability.
+
+Please include in PRs:
+- What changed and why.
+- Screenshots for UI changes.
+- Any migration or config notes.
