@@ -35,7 +35,8 @@ function HomePage() {
           Explore More Features
         </Link>
 
-        <article className="mock-card" aria-label="N-Keys sample environment synchronization state">
+        {/* TODO: Will make this into API fetched dynamic stats later */}
+        {/* <article className="mock-card" aria-label="N-Keys sample environment synchronization state">
           <h2>Project: Core API Cluster</h2>
           <ul>
             <li>
@@ -51,6 +52,23 @@ function HomePage() {
               <strong>just now</strong>
             </li>
           </ul>
+        </article> */}
+
+        <article className="open-source-note" aria-label="Open source contribution notice">
+          <h2>Open source and community-driven</h2>
+          <p>
+            Our UI, CLI, and many more parts are open source so everyone can
+            check code integrity, build trust, and help improve the product.
+            Feel free to contribute and make it better.
+          </p>
+          Web UI code: {' '}
+          <a
+            href="https://github.com/Neko-Nik-Org/N-Keys-WebUI"
+            target="_blank"
+            rel="noreferrer"
+          >
+            https://github.com/Neko-Nik-Org/N-Keys-WebUI
+          </a>
         </article>
       </section>
 

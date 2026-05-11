@@ -334,6 +334,37 @@ main {
   animation: fadeInUp 0.6s ease-out 0.25s both;
 }
 
+.open-source-note {
+  width: min(760px, 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(2, 181, 184, 0.08) 0%,
+    rgba(1, 120, 215, 0.08) 100%
+  );
+  border: 1px solid rgba(2, 181, 184, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  text-align: left;
+  animation: fadeInUp 0.58s ease-out 0.2s both;
+}
+
+.open-source-note h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.open-source-note p {
+  margin: var(--space-2) 0 var(--space-3);
+  color: var(--text-muted);
+}
+
+.open-source-note a {
+  color: var(--brand-secondary);
+  font-weight: 600;
+  word-break: break-all;
+}
+
 .mock-card h2 {
   margin: 0 0 var(--space-4);
   font-size: 1.1rem;
