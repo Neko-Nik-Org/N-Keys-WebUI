@@ -690,6 +690,47 @@ main {
   color: var(--text-muted);
 }
 
+.faq-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.faq-item {
+  padding: var(--space-5);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+  position: relative;
+  padding-right: var(--space-6);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--brand-primary);
+  font-weight: 700;
+  transition: transform 0.18s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  margin: var(--space-3) 0 0;
+  color: var(--text-muted);
+}
+
 @media (max-width: 960px) {
   .simple-grid,
   .feature-grid,

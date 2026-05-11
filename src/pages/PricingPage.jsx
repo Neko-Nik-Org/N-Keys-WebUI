@@ -36,6 +36,34 @@ const comparisonFeatures = [
   { name: 'Dedicated support', free: false, pro: false, enterprise: true },
 ]
 
+const faqs = [
+  {
+    question: 'Can I start with the Free plan and upgrade later?',
+    answer:
+      'Yes. You can start on Free, validate your workflow, and upgrade to Pro or Enterprise anytime as your team grows.',
+  },
+  {
+    question: 'Does Pro include CLI and API access?',
+    answer:
+      'Yes. Pro includes both CLI and cURL API workflows with API-key based authentication for automation and team usage.',
+  },
+  {
+    question: 'Do you support custom environment stages?',
+    answer:
+      'Yes. N-Keys supports standard stages like prod/dev/staging and custom stage names so teams can match existing deployment conventions.',
+  },
+  {
+    question: 'Is Docker Compose workflow supported?',
+    answer:
+      'Yes. You can integrate N-Keys with Docker Compose and raw env variable workflows without changing your existing setup.',
+  },
+  {
+    question: 'How is pricing handled for larger teams?',
+    answer:
+      'Enterprise pricing is customized based on support, compliance, and deployment needs. Contact us for a tailored plan.',
+  },
+]
+
 function PricingPage() {
   return (
     <>
@@ -125,6 +153,22 @@ function PricingPage() {
               ))}
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <section className="container section section-tight">
+        <div className="section-head">
+          <h2>Pricing FAQ</h2>
+          <p>Quick answers to common plan and billing questions.</p>
+        </div>
+
+        <div className="faq-list" role="list">
+          {faqs.map((faq) => (
+            <details key={faq.question} className="faq-item card" role="listitem">
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
         </div>
       </section>
     </>
