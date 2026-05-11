@@ -4,63 +4,79 @@ import SeoMeta from '../components/SeoMeta'
 const plans = [
   {
     name: 'Free',
-    description: 'For personal projects and early testing',
+    description: 'For individual developers',
     price: '$0',
-    points: ['1 workspace', 'Basic sync', 'Community support'],
+    points: ['3 projects', '50 keys per project', '10 config files', 'Email support', 'CLI + API access'],
+  },
+  {
+    name: 'Starter',
+    description: 'For growing teams',
+    price: '$5.99',
+    period: '/month',
+    points: ['10 users', '10 projects', '250 keys per project', '100 config files', '100 API keys', 'Email + scheduled meetings', 'Rust-powered backend'],
   },
   {
     name: 'Pro',
-    description: 'Economical plan for active product teams',
-    price: '$12',
+    description: 'For active product teams',
+    price: '$14.99',
     period: '/month',
-    points: ['Unlimited projects', 'Team access', 'Stage management', 'CLI + API access'],
+    points: ['30 users', '30 projects', '500 keys per project', '350 config files', 'Unlimited API keys', 'Priority support with meetings', 'Full MFA + RBAC'],
     highlighted: true,
   },
   {
     name: 'Enterprise',
-    description: 'For large deployments and compliance needs',
+    description: 'For large deployments and custom needs',
     price: 'Custom',
-    points: ['SLA and priority support', 'Custom deployment options', 'Security review support', 'Dedicated onboarding'],
+    points: ['Based on what you need'],
   },
 ]
 
 const comparisonFeatures = [
-  { name: 'Workspaces', free: '1', pro: 'Unlimited', enterprise: 'Unlimited' },
-  { name: 'Projects', free: '3', pro: 'Unlimited', enterprise: 'Unlimited' },
-  { name: 'Stage names (prod/dev/custom)', free: 'Basic', pro: 'Advanced', enterprise: 'Advanced' },
-  { name: 'CLI support', free: true, pro: true, enterprise: true },
-  { name: 'cURL + API key access', free: true, pro: true, enterprise: true },
-  { name: 'Server-to-server secure sync', free: false, pro: true, enterprise: true },
-  { name: 'Audit history', free: false, pro: true, enterprise: true },
-  { name: 'SSO / advanced access controls', free: false, pro: false, enterprise: true },
-  { name: 'Dedicated support', free: false, pro: false, enterprise: true },
+  { name: 'Users', free: '1', starter: '10', pro: '30', enterprise: 'Custom' },
+  { name: 'Projects', free: '3', starter: '10', pro: '30', enterprise: 'Custom' },
+  { name: 'Keys per project', free: '50', starter: '250', pro: '500', enterprise: 'Custom' },
+  { name: 'Config files', free: '10', starter: '100', pro: '350', enterprise: 'Custom' },
+  { name: 'API keys', free: '5', starter: '100', pro: 'Unlimited', enterprise: 'Unlimited' },
+  { name: 'Environments per project', free: '10', starter: 'Unlimited', pro: 'Unlimited', enterprise: 'Unlimited' },
+  { name: 'CLI tool', free: true, starter: true, pro: true, enterprise: true },
+  { name: 'API access', free: true, starter: true, pro: true, enterprise: true },
+  { name: 'Audit history', free: true, starter: true, pro: true, enterprise: true },
+  { name: 'Multi-factor auth (MFA)', free: 'Basic', starter: 'Full features', pro: 'Full features', enterprise: 'Full features' },
+  { name: 'Encryption', free: true, starter: 'Rust-powered', pro: 'Rust-powered', enterprise: 'Rust-powered' },
+  { name: 'RBAC & team access', free: 'Basic', starter: 'Teams', pro: 'Teams + Advanced', enterprise: 'Custom' },
+  { name: 'Support', free: 'Email', starter: 'Email + meetings', pro: 'Priority email + meetings', enterprise: 'Dedicated support' },
 ]
 
 const faqs = [
   {
-    question: 'Can I start with the Free plan and upgrade later?',
+    question: 'I am an individual developer. But I need higher limits than Free. What should I do?',
     answer:
-      'Yes. You can start on Free, validate your workflow, and upgrade to Pro or Enterprise anytime as your team grows.',
+      'I can arrange a custom plan tailored for individual developers with higher limits than Free at affordable pricing. Contact me at nikhil@nekonik.com with your needs and pricing requirements.',
   },
   {
-    question: 'Does Pro include CLI and API access?',
+    question: 'Can I start with Free and upgrade later?',
     answer:
-      'Yes. Pro includes both CLI and cURL API workflows with API-key based authentication for automation and team usage.',
+      'Yes. Start on Free, test your workflow, and upgrade to Starter or Pro as your team grows. Upgrade anytime—no long-term contracts.',
   },
   {
-    question: 'Do you support custom environment stages?',
+    question: 'Does every plan include CLI and API access?',
     answer:
-      'Yes. N-Keys supports standard stages like prod/dev/staging and custom stage names so teams can match existing deployment conventions.',
+      'Yes. All plans (Free, Starter, Pro, Enterprise) include CLI and API access so you can automate env var workflows via cURL or our tools.',
   },
   {
-    question: 'Is Docker Compose workflow supported?',
+    question: 'Is audit history included in all plans?',
     answer:
-      'Yes. You can integrate N-Keys with Docker Compose and raw env variable workflows without changing your existing setup.',
+      'Yes. All plans (Free, Starter, Pro, Enterprise) include audit history to track changes and ensure accountability. Which will hold 6 months (180 days) of history.',
   },
   {
-    question: 'How is pricing handled for larger teams?',
+    question: 'I want higher limits, but have a smaller team and tighter budget than Pro. Do you have options for that?',
     answer:
-      'Enterprise pricing is customized based on support, compliance, and deployment needs. Contact us for a tailored plan.',
+      'Yes. I can create a custom plan with specific limits and features that fit your team size, needs, and budget. Contact me at nikhil@nekonik.com with your propsal.',
+  },
+  {
+    question: 'What does Enterprise include?',
+    answer:
+      'Enterprise plans are fully customized. We offer unlimited users, projects, and API keys, dedicated support, whatever you need.',
   },
 ]
 
@@ -114,6 +130,7 @@ function PricingPage() {
               <tr>
                 <th style={{ textAlign: 'left' }}>Feature</th>
                 <th>Free</th>
+                <th>Starter</th>
                 <th style={{ background: 'rgba(2, 181, 184, 0.12)' }}>Pro</th>
                 <th>Enterprise</th>
               </tr>
@@ -129,6 +146,15 @@ function PricingPage() {
                       </span>
                     ) : (
                       feature.free
+                    )}
+                  </td>
+                  <td>
+                    {typeof feature.starter === 'boolean' ? (
+                      <span className={feature.starter ? 'feature-check' : 'feature-cross'}>
+                        {feature.starter ? '✓' : '—'}
+                      </span>
+                    ) : (
+                      feature.starter
                     )}
                   </td>
                   <td style={{ background: 'rgba(2, 181, 184, 0.02)' }}>
