@@ -42,7 +42,7 @@ const comparisonFeatures = [
   { name: 'API access', free: true, starter: true, pro: true, enterprise: true },
   { name: 'Audit history', free: true, starter: true, pro: true, enterprise: true },
   { name: 'Multi-factor auth (MFA)', free: 'Basic', starter: 'Full features', pro: 'Full features', enterprise: 'Full features' },
-  { name: 'Encryption', free: true, starter: 'Rust-powered', pro: 'Rust-powered', enterprise: 'Rust-powered' },
+  { name: 'Encryption', free: true, starter: true, pro: true, enterprise: true },
   { name: 'RBAC & team access', free: 'Basic', starter: 'Teams', pro: 'Teams + Advanced', enterprise: 'Custom' },
   { name: 'Support', free: 'Email', starter: 'Email + meetings', pro: 'Priority email + meetings', enterprise: 'Dedicated support' },
 ]
