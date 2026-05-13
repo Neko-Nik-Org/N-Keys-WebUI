@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import SeoMeta from '../components/SeoMeta'
 
@@ -87,7 +88,12 @@ function getSavings(monthly, yearly) {
 }
 
 function PricingPage() {
+  const navigate = useNavigate()
   const [billingCycle, setBillingCycle] = useState('monthly')
+
+  const handleChoosePlan = () => {
+    navigate('/waitlist')
+  }
 
   return (
     <>
@@ -147,7 +153,7 @@ function PricingPage() {
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
-                <button type="button" className={plan.highlighted ? 'button button-primary' : 'button button-secondary'}>
+                <button type="button" className={plan.highlighted ? 'button button-primary' : 'button button-secondary'} onClick={handleChoosePlan}>
                   Choose {plan.name}
                 </button>
               </article>
