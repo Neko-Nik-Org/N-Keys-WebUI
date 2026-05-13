@@ -1,7 +1,17 @@
+import { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import SeoMeta from '../components/SeoMeta'
+import CfTurnstileWidget from '../components/CfTurnstileWidget'
 
 function ContactPage() {
+  const [cfTurnstileToken, setCfTurnstileToken] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    formData.set('cfTurnstileToken', cfTurnstileToken)
+  }
+
   return (
     <>
       <SeoMeta
@@ -22,7 +32,7 @@ function ContactPage() {
               Email directly at <a href="mailto:nikhil@nekonik.com">nikhil@nekonik.com</a> for product, security, or pricing questions.
             </p>
 
-            <form className="form" onSubmit={(event) => event.preventDefault()}>
+            <form className="form" onSubmit={handleSubmit}>
               <label htmlFor="contact-name">Name</label>
               <input id="contact-name" name="name" type="text" autoComplete="name" required />
 
@@ -31,6 +41,8 @@ function ContactPage() {
 
               <label htmlFor="contact-message">Message</label>
               <textarea id="contact-message" name="message" rows="4" required />
+
+              <CfTurnstileWidget token={cfTurnstileToken} onTokenChange={setCfTurnstileToken} />
 
               <button type="submit" className="button button-primary">
                 Send message

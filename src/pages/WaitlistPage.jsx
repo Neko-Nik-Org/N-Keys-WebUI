@@ -1,7 +1,22 @@
+import { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import SeoMeta from '../components/SeoMeta'
+import CfTurnstileWidget from '../components/CfTurnstileWidget'
 
 function WaitlistPage() {
+  const [cfTurnstileToken, setCfTurnstileToken] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    formData.set('cfTurnstileToken', cfTurnstileToken)
+
+    console.log('Waitlist form submitted with data:')
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`)
+    }
+  }
+
   return (
     <>
       <SeoMeta
@@ -16,7 +31,7 @@ function WaitlistPage() {
 
       <section className="container section section-tight">
         <article className="card waitlist-card">
-          <form className="form" onSubmit={(event) => event.preventDefault()}>
+          <form className="form" onSubmit={handleSubmit}>
             <label htmlFor="waitlist-name">Name</label>
             <input id="waitlist-name" name="name" type="text" autoComplete="name" required />
 
@@ -25,6 +40,8 @@ function WaitlistPage() {
 
             <label htmlFor="waitlist-use-case">Use Case</label>
             <textarea id="waitlist-use-case" name="useCase" rows="4" required />
+
+            <CfTurnstileWidget token={cfTurnstileToken} onTokenChange={setCfTurnstileToken} />
 
             <button type="submit" className="button button-primary">
               Join Waitlist
