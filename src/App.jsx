@@ -5,6 +5,7 @@ import WaitlistPage from './pages/WaitlistPage'
 import ContactPage from './pages/ContactPage'
 import PricingPage from './pages/PricingPage'
 import HomePage from './pages/HomePage'
+import RoadmapPage from './pages/RoadmapPage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" element={<SiteLayout />}>
         <Route index element={<HomePage />} />
         <Route path="features" element={<FeaturesPage />} />
+        <Route path="roadmap" element={<RoadmapPage />} />
         <Route path="pricing" element={<PricingPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="waitlist" element={<WaitlistPage />} />

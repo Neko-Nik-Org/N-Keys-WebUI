@@ -5,6 +5,7 @@ import logoImg from '../assets/n-keys-no-bg.png'
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/features', label: 'Features' },
+  { to: '/roadmap', label: 'Roadmap' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/contact', label: 'Contact' },
   { to: '/waitlist', label: 'Waitlist' },
