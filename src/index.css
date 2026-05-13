@@ -1,3 +1,59 @@
+/* ── Enterprise/Custom Banner ───────────────────────────── */
+.entp-banner {
+  width: 100%;
+  margin: 2.2rem 0 2.2rem 0;
+  padding: 0;
+  position: relative;
+  min-height: 0;
+  background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);
+  transform: skewX(-8deg);
+  box-shadow: 0 4px 24px rgba(2,181,184,0.10);
+}
+.entp-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 0.7rem 2.2rem 0.7rem 2.7rem;
+  transform: skewX(8deg);
+}
+.entp-title {
+  color: #fff;
+  font-size: 1.13rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-right: 1.1rem;
+}
+.entp-desc {
+  color: #e6f9f9;
+  font-size: 0.98rem;
+  font-weight: 500;
+  flex: 1 1 auto;
+  margin-right: 1.2rem;
+}
+.entp-btn {
+  font-size: 0.98rem;
+  padding: 0.5em 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(2,181,184,0.13);
+}
+@media (max-width: 700px) {
+  .entp-banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 1.1rem 1.1rem 1.1rem 1.5rem;
+  }
+  .entp-title {
+    margin-right: 0;
+    margin-bottom: 0.3em;
+  }
+  .entp-desc {
+    margin-right: 0;
+    margin-bottom: 0.5em;
+  }
+}
 :root {
   --bg: #f8fafc;
   --surface: #ffffff;
@@ -394,7 +450,6 @@ main {
 }
 
 .section {
-  padding-top: var(--space-12);
   padding-bottom: var(--space-12);
 }
 
@@ -553,6 +608,77 @@ main {
   align-items: baseline;
   gap: var(--space-2);
   margin: var(--space-3) 0;
+}
+
+
+.billing-toggle-pill {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(2, 181, 184, 0.07);
+  padding: 0.25rem;
+  gap: 0.25rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-3);
+}
+.pill {
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+  outline: none;
+}
+.pill.active {
+  background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(2, 181, 184, 0.13);
+}
+.savings-badge {
+  display: inline-block;
+  background: #e6f9f9;
+  color: var(--brand-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.13em 0.7em;
+  margin-left: 0.7em;
+  vertical-align: middle;
+  letter-spacing: 0.01em;
+}
+.plan-savings {
+  display: inline-block;
+  background: #e6f9f9;
+  color: var(--brand-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.13em 0.7em;
+  margin-left: 0.7em;
+  vertical-align: middle;
+  letter-spacing: 0.01em;
+}
+.billing-note {
+  color: var(--brand-primary);
+  background: #e6f9f9;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0.7em 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-4);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(2, 181, 184, 0.07);
+  max-width: 420px;
 }
 
 .price {

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import SeoMeta from '../components/SeoMeta'
 
@@ -5,29 +6,24 @@ const plans = [
   {
     name: 'Free',
     description: 'For individual developers',
-    price: '$0',
+    monthly: '$0',
+    yearly: '$0',
     points: ['3 projects', '50 keys per project', '10 config files', 'Email support', 'CLI + API access'],
   },
   {
     name: 'Starter',
     description: 'For growing teams',
-    price: '$5.99',
-    period: '/month',
+    monthly: '$5.99',
+    yearly: '$59.99',
     points: ['10 users', '10 projects', '250 keys per project', '100 config files', '100 API keys', 'Email + scheduled meetings', 'Rust-powered backend'],
   },
   {
     name: 'Pro',
     description: 'For active product teams',
-    price: '$14.99',
-    period: '/month',
+    monthly: '$14.99',
+    yearly: '$149.99',
     points: ['30 users', '30 projects', '500 keys per project', '350 config files', 'Unlimited API keys', 'Priority support with meetings', 'Full MFA + RBAC'],
     highlighted: true,
-  },
-  {
-    name: 'Enterprise',
-    description: 'For large deployments and custom needs',
-    price: 'Custom',
-    points: ['Based on what you need'],
   },
 ]
 
@@ -80,7 +76,22 @@ const faqs = [
   },
 ]
 
+
+function getSavings(monthly, yearly) {
+  // Parse $5.99 → 5.99
+  const m = parseFloat((monthly || '').replace(/[^\d.]/g, ''))
+  const y = parseFloat((yearly || '').replace(/[^\d.]/g, ''))
+  if (!m || !y) return null
+  const totalYearly = m * 12
+  const saved = totalYearly - y
+  if (saved <= 0) return null
+  const percent = Math.round((saved / totalYearly) * 100)
+  return percent > 0 ? percent : null
+}
+
 function PricingPage() {
+  const [billingCycle, setBillingCycle] = useState('monthly')
+
   return (
     <>
       <SeoMeta
@@ -94,28 +105,72 @@ function PricingPage() {
       />
 
       <section className="container section section-tight">
+        <div className="billing-toggle-pill">
+          <button
+            type="button"
+            className={billingCycle === 'monthly' ? 'pill active' : 'pill'}
+            onClick={() => setBillingCycle('monthly')}
+            aria-pressed={billingCycle === 'monthly'}
+          >
+            Monthly
+          </button>
+          <button
+            type="button"
+            className={billingCycle === 'yearly' ? 'pill active' : 'pill'}
+            onClick={() => setBillingCycle('yearly')}
+            aria-pressed={billingCycle === 'yearly'}
+          >
+            Yearly
+            <span className="savings-badge">Save up to 17%</span>
+          </button>
+        </div>
+        <p className="billing-note">Choose annual billing for the best savings</p>
+
         <div className="pricing-grid">
-          {plans.map((plan) => (
-            <article
-              key={plan.name}
-              className={plan.highlighted ? 'card pricing-card pricing-card-focus' : 'card pricing-card'}
+          {plans.filter(plan => plan.name !== 'Enterprise').map((plan) => {
+            const savings = getSavings(plan.monthly, plan.yearly)
+            return (
+              <article
+                key={plan.name}
+                className={plan.highlighted ? 'card pricing-card pricing-card-focus' : 'card pricing-card'}
+              >
+                <h2>{plan.name}</h2>
+                <p>{plan.description}</p>
+                <div className="price-display">
+                  <span className="price">{plan[billingCycle]}</span>
+                  {plan.name !== 'Free' && (
+                    <span className="period">{billingCycle === 'monthly' ? '/month' : '/year'}</span>
+                  )}
+                  {billingCycle === 'yearly' && savings && plan.name !== 'Free' && (
+                    <span className="plan-savings">Save {savings}%</span>
+                  )}
+                </div>
+                <ul>
+                  {plan.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <button type="button" className={plan.highlighted ? 'button button-primary' : 'button button-secondary'}>
+                  Choose {plan.name}
+                </button>
+              </article>
+            )
+          })}
+        </div>
+
+        {/* Enterprise/Custom Plan Banner */}
+        <div className="entp-banner">
+          <div className="entp-banner-content">
+            <span className="entp-title">Enterprise & Custom</span>
+            <span className="entp-desc">Need more users, custom features, or unique requirements? <b>Enterprise</b> and custom plans can be arranged for any team size or special needs.</span>
+            <button
+              type="button"
+              className="button button-primary entp-btn"
+              onClick={() => window.location.href = '/contact'}
             >
-              <h2>{plan.name}</h2>
-              <p>{plan.description}</p>
-              <div className="price-display">
-                <span className="price">{plan.price}</span>
-                {plan.period && <span className="period">{plan.period}</span>}
-              </div>
-              <ul>
-                {plan.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-              <button type="button" className={plan.highlighted ? 'button button-primary' : 'button button-secondary'}>
-                Choose {plan.name}
-              </button>
-            </article>
-          ))}
+              Contact Us
+            </button>
+          </div>
         </div>
       </section>
 
