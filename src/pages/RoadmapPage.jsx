@@ -6,27 +6,45 @@ import { useState } from 'react'
 function RoadmapPage() {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const filteredEntries = roadmapEntries.filter((entry) =>
-    entry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    entry.description.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const highlightText = (text, term) => {
+    if (!term) return text
+    const parts = text.split(new RegExp(`(${term})`, 'gi'))
+    return parts.map((part, index) =>
+      part.toLowerCase() === term.toLowerCase() ? (
+        <mark key={index} className="highlight">
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    )
+  }
+
+  const filteredEntries = roadmapEntries.filter((entry) => {
+    const lowerSearchTerm = searchTerm.toLowerCase()
+    return (
+      entry.title.toLowerCase().includes(lowerSearchTerm) ||
+      entry.description.toLowerCase().includes(lowerSearchTerm) ||
+      entry.range.toLowerCase().includes(lowerSearchTerm)
+    )
+  })
 
   return (
     <>
       <SeoMeta
         title="Roadmap"
-        description="Explore the N-Keys roadmap with upcoming milestones, platform improvements, and security-focused releases for env and config management teams."
+        description="Explore the N-Keys roadmap with upcoming milestones, platform improvements, and security-focused releases for environment and configuration management teams."
       />
 
       <PageHeader
         title="Roadmap"
-        subtitle="Simple timeline with date range, title, short description, and optional link."
+        subtitle="Discover our timeline with key milestones, detailed descriptions, and links to learn more."
       />
 
       <section className="container section section-tight roadmap-section">
         <input
           type="text"
-          placeholder="Search roadmap..."
+          placeholder="Search roadmap by title, description, or date . . ."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="roadmap-search-bar"
@@ -37,9 +55,9 @@ function RoadmapPage() {
             <article key={entry.id} className="roadmap-item" role="listitem">
               <div className="roadmap-main">
                 <div className={entry.done ? 'roadmap-content is-done' : 'roadmap-content'}>
-                  <p className="roadmap-range">{entry.range}</p>
-                  <h3 className="roadmap-title">{entry.title}</h3>
-                  <p className="roadmap-description">{entry.description}</p>
+                  <p className="roadmap-range">{highlightText(entry.range, searchTerm)}</p>
+                  <h3 className="roadmap-title">{highlightText(entry.title, searchTerm)}</h3>
+                  <p className="roadmap-description">{highlightText(entry.description, searchTerm)}</p>
                 </div>
 
                 {entry.done && <span className="roadmap-done">Done</span>}

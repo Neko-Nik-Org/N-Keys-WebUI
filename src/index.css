@@ -928,3 +928,11 @@ main {
     text-align: center;
   }
 }
+
+/* Highlight styling for search matches */
+.highlight {
+  background-color: var(--brand-primary);
+  color: var(--surface);
+  padding: 0 0.2rem;
+  border-radius: var(--radius-sm);
+}
