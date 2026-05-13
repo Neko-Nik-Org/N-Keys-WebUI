@@ -17,7 +17,7 @@ function ContactPage() {
     const payload = {
       name: String(formData.get('name') || ''),
       email: String(formData.get('email') || ''),
-      message: String(formData.get('message') || ''),
+      message: `Contact Form Submission:\n\n${String(formData.get('message') || '')}`,
       send_to: contactFormSendTo,
     }
 
@@ -79,6 +79,7 @@ function ContactPage() {
 
               {submitMessage ? <p className="support-text">{submitMessage}</p> : null}
             </form>
+            <p className="support-text">We will get back to you as soon as possible!</p>
           </article>
 
           <article className="card">

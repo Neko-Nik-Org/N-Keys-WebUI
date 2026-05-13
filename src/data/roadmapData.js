@@ -9,7 +9,7 @@ export const roadmapEntries = [
   },
   {
     id: '002',
-    range: '01-May-2026 to 13-May-2026',
+    range: '01-May-2026 to 12-May-2026',
     title: 'Website, branding, and project foundation',
     description:
       'Created the landing page, finalized the initial branding, logo direction, and stabilized the public-facing website structure. Also make it open source on GitHub.',
@@ -18,11 +18,11 @@ export const roadmapEntries = [
   },
   {
     id: '003',
-    range: '13-May-2026 to 16-May-2026',
+    range: '12-May-2026 to 13-May-2026',
     title: 'Waitlist and contact system integration',
     description:
       'Replace temporary frontend placeholders with proper backend API integrations for waitlist registrations and contact submissions.',
-    done: false,
+    done: true,
   },
   {
     id: '004',

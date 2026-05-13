@@ -17,7 +17,7 @@ function WaitlistPage() {
     const payload = {
       name: String(formData.get('name') || ''),
       email: String(formData.get('email') || ''),
-      message: String(formData.get('useCase') || ''),
+      message: `Waitlist Request:\n\n${String(formData.get('useCase') || '')}`,
       send_to: contactFormSendTo,
     }
 
@@ -73,7 +73,7 @@ function WaitlistPage() {
 
             {submitMessage ? <p className="support-text">{submitMessage}</p> : null}
           </form>
-          <p className="support-text">Early users get priority onboarding and early economical pricing.</p>
+          <p className="support-text">Early users get priority onboarding and feedback opportunities!</p>
         </article>
       </section>
     </>
