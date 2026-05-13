@@ -12,8 +12,9 @@ export const roadmapEntries = [
     range: '01-May-2026 to 13-May-2026',
     title: 'Website, branding, and project foundation',
     description:
-      'Created the landing page, finalized the initial branding, logo direction, and stabilized the public-facing website structure.',
+      'Created the landing page, finalized the initial branding, logo direction, and stabilized the public-facing website structure. Also make it open source on GitHub.',
     done: true,
+    learnMoreUrl: 'https://github.com/Neko-Nik-Org/N-Keys-WebUI',
   },
   {
     id: '003',
