@@ -66,6 +66,11 @@ const faqs = [
     answer:
       'Yes. All plans include audit history to track changes and ensure accountability. Which will hold 6 months (180 days) of history. Can not be extended at this time. Export your audit history regularly if you want to keep it longer.',
   },
+  {
+    question: 'We are a Non-profit / Open-source / Educational organization. Do you have special pricing for us?',
+    answer:
+      'Yes, I can create a custom plan with specific limits and features, including fully free plans for qualifying organizations. Send me your requirements and proposal along with pricing expectations to me (or book a meeting).',
+  }
 ]
 
 
