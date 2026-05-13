@@ -13,23 +13,24 @@ const plans = [
   {
     name: 'Starter',
     description: 'For growing teams',
-    monthly: '$5.99',
-    yearly: '$59.99',
-    points: ['10 users', '10 projects', '250 keys per project', '100 config files', '100 API keys', 'Email + scheduled meetings', 'Rust-powered backend'],
+    monthly: '$8.99',
+    yearly: '$79.99',
+    points: ['10 users', '20 projects', '250 keys per project', '100 config files', '100 API keys', 'Email + scheduled meetings'],
+    highlighted: true,
   },
   {
     name: 'Pro',
     description: 'For active product teams',
-    monthly: '$14.99',
+    monthly: '$19.99',
     yearly: '$149.99',
-    points: ['30 users', '30 projects', '500 keys per project', '350 config files', 'Unlimited API keys', 'Priority support with meetings', 'Full MFA + RBAC'],
-    highlighted: true,
+    points: ['30 users', '50 projects', '500 keys per project', '350 config files', 'Unlimited API keys', 'Priority Email + scheduled meetings'],
+    highlighted: false,
   },
 ]
 
 const comparisonFeatures = [
   { name: 'Users', free: '1', starter: '10', pro: '30', enterprise: 'Custom' },
-  { name: 'Projects', free: '3', starter: '10', pro: '30', enterprise: 'Custom' },
+  { name: 'Projects', free: '3', starter: '20', pro: '50', enterprise: 'Custom' },
   { name: 'Keys per project', free: '50', starter: '250', pro: '500', enterprise: 'Custom' },
   { name: 'Config files', free: '10', starter: '100', pro: '350', enterprise: 'Custom' },
   { name: 'API keys', free: '5', starter: '100', pro: 'Unlimited', enterprise: 'Unlimited' },
@@ -127,7 +128,7 @@ function PricingPage() {
         <p className="billing-note">Choose annual billing for the best savings</p>
 
         <div className="pricing-grid">
-          {plans.filter(plan => plan.name !== 'Enterprise').map((plan) => {
+          {plans.map((plan) => {
             const savings = getSavings(plan.monthly, plan.yearly)
             return (
               <article
@@ -162,7 +163,7 @@ function PricingPage() {
         <div className="entp-banner">
           <div className="entp-banner-content">
             <span className="entp-title">Enterprise & Custom</span>
-            <span className="entp-desc">Need more users, custom features, or unique requirements? <b>Enterprise</b> and custom plans can be arranged for any team size or special needs.</span>
+            <span className="entp-desc">Need more users or have unique requirements? <b>Enterprise</b> and custom plans can be arranged for any team size or special needs.</span>
             <button
               type="button"
               className="button button-primary entp-btn"
