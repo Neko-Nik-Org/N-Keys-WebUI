@@ -8,7 +8,8 @@ const plans = [
     description: 'For individual developers',
     monthly: '$0',
     yearly: '$0',
-    points: ['3 projects', '50 keys per project', '10 config files', 'Email support', 'CLI + API access'],
+    points: ['Single user (Can be upgraded)', '3 projects', '50 keys per project', '10 config files', '5 API keys', 'Basic Email support'],
+    highlighted: false,
   },
   {
     name: 'Starter',
@@ -23,7 +24,7 @@ const plans = [
     description: 'For active product teams',
     monthly: '$19.99',
     yearly: '$149.99',
-    points: ['30 users', '50 projects', '500 keys per project', '350 config files', 'Unlimited API keys', 'Priority Email + scheduled meetings'],
+    points: ['30 users', '50 projects', '500 keys per project', '350 config files', '500 API keys', 'Priority Email + scheduled meetings'],
     highlighted: false,
   },
 ]
@@ -33,7 +34,7 @@ const comparisonFeatures = [
   { name: 'Projects', free: '3', starter: '20', pro: '50', enterprise: 'Custom' },
   { name: 'Keys per project', free: '50', starter: '250', pro: '500', enterprise: 'Custom' },
   { name: 'Config files', free: '10', starter: '100', pro: '350', enterprise: 'Custom' },
-  { name: 'API keys', free: '5', starter: '100', pro: 'Unlimited', enterprise: 'Unlimited' },
+  { name: 'API keys', free: '5', starter: '100', pro: '1,000', enterprise: 'Unlimited' },
   { name: 'Environments per project', free: '10', starter: 'Unlimited', pro: 'Unlimited', enterprise: 'Unlimited' },
   { name: 'CLI tool', free: true, starter: true, pro: true, enterprise: true },
   { name: 'API access', free: true, starter: true, pro: true, enterprise: true },
@@ -46,9 +47,9 @@ const comparisonFeatures = [
 
 const faqs = [
   {
-    question: 'I am an individual developer. But I need higher limits than Free. What should I do?',
+    question: 'I am an individual developer / very small team. But I need higher limits than are offered above. Do you have options for that?',
     answer:
-      'I can arrange a custom plan tailored for individual developers with higher limits than Free at affordable pricing. Contact me at nikhil@nekonik.com with your needs and pricing requirements.',
+      'Yes, I can create a custom plan with specific limits and features that fit your needs and budget. Send me your requirements and proposal along with pricing expectations to me (or book a meeting).',
   },
   {
     question: 'Can I start with Free and upgrade later?',
@@ -58,22 +59,12 @@ const faqs = [
   {
     question: 'Does every plan include CLI and API access?',
     answer:
-      'Yes. All plans (Free, Starter, Pro, Enterprise) include CLI and API access so you can automate env var workflows via cURL or our tools.',
+      'Yes. All plans include CLI and API access so you can automate env var workflows via cURL or our tools.',
   },
   {
     question: 'Is audit history included in all plans?',
     answer:
-      'Yes. All plans (Free, Starter, Pro, Enterprise) include audit history to track changes and ensure accountability. Which will hold 6 months (180 days) of history.',
-  },
-  {
-    question: 'I want higher limits, but have a smaller team and tighter budget than Pro. Do you have options for that?',
-    answer:
-      'Yes. I can create a custom plan with specific limits and features that fit your team size, needs, and budget. Contact me at nikhil@nekonik.com with your propsal.',
-  },
-  {
-    question: 'What does Enterprise include?',
-    answer:
-      'Enterprise plans are fully customized. We offer unlimited users, projects, and API keys, dedicated support, whatever you need.',
+      'Yes. All plans include audit history to track changes and ensure accountability. Which will hold 6 months (180 days) of history. Can not be extended at this time. Export your audit history regularly if you want to keep it longer.',
   },
 ]
 
