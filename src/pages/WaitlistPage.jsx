@@ -2,18 +2,42 @@ import { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import SeoMeta from '../components/SeoMeta'
 import CfTurnstileWidget from '../components/CfTurnstileWidget'
+import { contactFormSendTo, submitContactForm } from '../api/contactFormApi'
 
 function WaitlistPage() {
   const [cfTurnstileToken, setCfTurnstileToken] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    formData.set('cfTurnstileToken', cfTurnstileToken)
+    const form = event.currentTarget
+    const formData = new FormData(form)
 
-    console.log('Waitlist form submitted with data:')
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`)
+    const payload = {
+      name: String(formData.get('name') || ''),
+      email: String(formData.get('email') || ''),
+      message: String(formData.get('useCase') || ''),
+      send_to: contactFormSendTo,
+    }
+
+    if (!cfTurnstileToken) {
+      setSubmitMessage('Please complete the Cloudflare verification before submitting.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitMessage('')
+
+    try {
+      await submitContactForm(payload, cfTurnstileToken)
+      setSubmitMessage('Waitlist request sent successfully.')
+      form.reset()
+      setCfTurnstileToken('')
+    } catch (error) {
+      setSubmitMessage(error.message || 'Failed to send request. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -43,9 +67,11 @@ function WaitlistPage() {
 
             <CfTurnstileWidget token={cfTurnstileToken} onTokenChange={setCfTurnstileToken} />
 
-            <button type="submit" className="button button-primary">
-              Join Waitlist
+            <button type="submit" className="button button-primary" disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Join Waitlist'}
             </button>
+
+            {submitMessage ? <p className="support-text">{submitMessage}</p> : null}
           </form>
           <p className="support-text">Early users get priority onboarding and early economical pricing.</p>
         </article>

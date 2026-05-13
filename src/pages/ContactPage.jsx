@@ -2,14 +2,43 @@ import { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import SeoMeta from '../components/SeoMeta'
 import CfTurnstileWidget from '../components/CfTurnstileWidget'
+import { contactFormSendTo, submitContactForm } from '../api/contactFormApi'
 
 function ContactPage() {
   const [cfTurnstileToken, setCfTurnstileToken] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    formData.set('cfTurnstileToken', cfTurnstileToken)
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    const payload = {
+      name: String(formData.get('name') || ''),
+      email: String(formData.get('email') || ''),
+      message: String(formData.get('message') || ''),
+      send_to: contactFormSendTo,
+    }
+
+    if (!cfTurnstileToken) {
+      setSubmitMessage('Please complete the Cloudflare verification before submitting.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitMessage('')
+
+    try {
+      await submitContactForm(payload, cfTurnstileToken)
+      setSubmitMessage('Message sent successfully.')
+      form.reset()
+      setCfTurnstileToken('')
+    } catch (error) {
+      setSubmitMessage(error.message || 'Failed to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -44,9 +73,11 @@ function ContactPage() {
 
               <CfTurnstileWidget token={cfTurnstileToken} onTokenChange={setCfTurnstileToken} />
 
-              <button type="submit" className="button button-primary">
-                Send message
+              <button type="submit" className="button button-primary" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send message'}
               </button>
+
+              {submitMessage ? <p className="support-text">{submitMessage}</p> : null}
             </form>
           </article>
 

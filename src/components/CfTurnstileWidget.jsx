@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { Turnstile } from '@marsidev/react-turnstile'
 
 const CF_TURNSTILE_SITE_KEY = '0x4AAAAAAC8XWNeUpN0H3YZP'
