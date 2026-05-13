@@ -900,3 +900,31 @@ main {
     grid-column: 1;
   }
 }
+
+/* Styling for the roadmap search bar */
+.roadmap-search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-3);
+  margin: var(--space-4) auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.roadmap-search-bar:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(2, 181, 184, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .roadmap-search-bar {
+    margin: var(--space-4) auto;
+    display: block;
+    text-align: center;
+  }
+}

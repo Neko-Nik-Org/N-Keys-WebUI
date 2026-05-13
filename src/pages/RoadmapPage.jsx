@@ -1,8 +1,16 @@
 import PageHeader from '../components/PageHeader'
 import SeoMeta from '../components/SeoMeta'
 import { roadmapEntries } from '../data/roadmapData'
+import { useState } from 'react'
 
 function RoadmapPage() {
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const filteredEntries = roadmapEntries.filter((entry) =>
+    entry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    entry.description.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   return (
     <>
       <SeoMeta
@@ -16,8 +24,16 @@ function RoadmapPage() {
       />
 
       <section className="container section section-tight roadmap-section">
+        <input
+          type="text"
+          placeholder="Search roadmap..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="roadmap-search-bar"
+        />
+
         <div className="roadmap-list" role="list">
-          {roadmapEntries.map((entry) => (
+          {filteredEntries.map((entry) => (
             <article key={entry.id} className="roadmap-item" role="listitem">
               <div className="roadmap-main">
                 <div className={entry.done ? 'roadmap-content is-done' : 'roadmap-content'}>
