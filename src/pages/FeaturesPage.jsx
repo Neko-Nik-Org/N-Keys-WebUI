@@ -1,78 +1,7 @@
 import PageHeader from '../components/PageHeader'
 import FeatureIcon from '../components/FeatureIcon'
 import SeoMeta from '../components/SeoMeta'
-
-const features = [
-  {
-    title: 'Server-to-server sync',
-    description: 'Sync env vars and config files securely between servers without manual copy mistakes or drift.',
-    iconPath: 'M12 3L5 7v5c0 5 3.5 8 7 9 3.5-1 7-4 7-9V7l-7-4z',
-  },
-  {
-    title: 'Docker Compose support',
-    description: 'Inject and sync variables directly for Docker Compose deployments with clean stage separation.',
-    iconPath: 'M4 13h16M8 9V6h4v3M9 17h6M6 13v4h12v-4',
-  },
-  {
-    title: 'CLI and cURL workflows',
-    description: 'Use our CLI tool daily or call endpoints directly with cURL when scripting is faster.',
-    iconPath: 'M8 9l-3 3 3 3M16 9l3 3-3 3M13 7l-2 10',
-  },
-  {
-    title: 'Raw env variable support',
-    description: 'Manage raw env vars as-is for existing scripts, CI pipelines, and server bootstrap automation.',
-    iconPath: 'M12 5v14M5 12h14',
-  },
-  {
-    title: 'API key authentication',
-    description: 'Keep auth simple with API-key based access that fits internal tools and automation pipelines.',
-    iconPath: 'M16 18a4 4 0 0 0-8 0M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6M6 18a3 3 0 0 0-2 0M18 18a3 3 0 0 1 2 0',
-  },
-  {
-    title: 'Custom stage support',
-    description: 'Manage prod, dev, staging, and custom environment stage names with clear boundaries.',
-    iconPath: 'M6 4h12v16H6zM9 8h6M9 12h6M9 16h4',
-  },
-  {
-    title: 'Argon2-secured keys',
-    description: 'Sensitive credentials are protected with Argon2-based security implemented in Rust.',
-    iconPath: 'M12 3L5 7v5c0 5 3.5 8 7 9 3.5-1 7-4 7-9V7l-7-4z',
-  },
-  {
-    title: 'Pure Rust backend',
-    description: 'Built in Rust for predictable performance, strong safety guarantees, and operational stability.',
-    iconPath: 'M16 18a4 4 0 0 0-8 0M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6M6 18a3 3 0 0 0-2 0M18 18a3 3 0 0 1 2 0',
-  },
-  {
-    title: 'Audit logs with 180-day retention',
-    description: 'Comprehensive audit logs of all significant actions, retained for 180 days for security and troubleshooting.',
-    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
-  },
-  {
-    title: 'Usage-based pricing',
-    description: 'Simple, usage-based pricing with a free tier for small teams and practical costs for growing orgs.',
-    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
-  },
-  {
-    title: 'Multi-factor authentication (MFA)',
-    description: 'Add an extra layer of security to your account with multi-factor authentication (MFA) support.',
-    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
-  },
-  {
-    title: 'Role-based access control (RBAC)',
-    description: 'Control access to your environment variables and config files with role-based access control (RBAC).',
-    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
-  }
-]
-
-const benefits = [
-  'One global place to manage env and config data',
-  'Works for small teams and growing engineering orgs',
-  'Clear separation between environments and stages',
-  'Simple onboarding for developers and DevOps teams',
-  'Economical pricing designed for practical usage',
-  'Built to reduce outages caused by config drift',
-]
+import { features, benefits } from '../data/featuresData'
 
 function FeaturesPage() {
   return (
@@ -91,7 +20,7 @@ function FeaturesPage() {
         <div className="feature-grid">
           {features.map((feature) => (
             <article key={feature.title} className="card feature-card">
-              <FeatureIcon path={feature.iconPath} />
+              <FeatureIcon icon={feature.icon} />
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
             </article>
