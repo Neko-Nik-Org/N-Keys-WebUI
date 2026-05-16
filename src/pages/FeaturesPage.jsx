@@ -43,6 +43,26 @@ const features = [
     description: 'Built in Rust for predictable performance, strong safety guarantees, and operational stability.',
     iconPath: 'M16 18a4 4 0 0 0-8 0M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6M6 18a3 3 0 0 0-2 0M18 18a3 3 0 0 1 2 0',
   },
+  {
+    title: 'Audit logs with 180-day retention',
+    description: 'Comprehensive audit logs of all significant actions, retained for 180 days for security and troubleshooting.',
+    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
+  },
+  {
+    title: 'Usage-based pricing',
+    description: 'Simple, usage-based pricing with a free tier for small teams and practical costs for growing orgs.',
+    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
+  },
+  {
+    title: 'Multi-factor authentication (MFA)',
+    description: 'Add an extra layer of security to your account with multi-factor authentication (MFA) support.',
+    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
+  },
+  {
+    title: 'Role-based access control (RBAC)',
+    description: 'Control access to your environment variables and config files with role-based access control (RBAC).',
+    iconPath: 'M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM19.4 15a9 9 0 1 0-6.4 2.4L12 17v5',
+  }
 ]
 
 const benefits = [
