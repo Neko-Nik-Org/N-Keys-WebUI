@@ -124,7 +124,7 @@ function PricingPage() {
             aria-pressed={billingCycle === 'yearly'}
           >
             Yearly
-            <span className="savings-badge">Save up to 17%</span>
+            <span className="savings-badge">Save up to 37%</span>
           </button>
         </div>
         <p className="billing-note">Choose annual billing for the best savings</p>
