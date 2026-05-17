@@ -5,7 +5,7 @@ import SeoMeta from '../components/SeoMeta'
 import UsageInputsCard from '../components/pricing/UsageInputsCard'
 import PricingSummaryCard from '../components/pricing/PricingSummaryCard'
 import RateCardModal from '../components/pricing/RateCardModal'
-import { DEFAULT_USAGE, FREE_TIER_MAX_SUBTOTAL, PRICING_FAQS, PRICING_WEIGHTS } from '../data/pricingConfig'
+import { DEFAULT_USAGE, PRICING_FAQS, PRICING_WEIGHTS } from '../data/pricingConfig'
 import { calculatePricing, toNumber } from '../utils/pricingCalculator'
 
 function PricingPage() {
@@ -26,7 +26,7 @@ function PricingPage() {
   }
 
   const pricingBreakdown = useMemo(
-    () => calculatePricing({ usage, weights: PRICING_WEIGHTS, freeTierLimits: FREE_TIER_MAX_SUBTOTAL }),
+    () => calculatePricing({ usage, weights: PRICING_WEIGHTS }),
     [usage],
   )
 

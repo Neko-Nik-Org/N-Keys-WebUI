@@ -2,37 +2,66 @@ function UsageInputsCard({ usage, onChange }) {
   return (
     <div className="pricing-panel">
       <h2>Usage Inputs</h2>
-      <p className="calc-note">Adjust values to estimate your monthly bill.</p>
+      <p className="calc-note">Adjust your users and projects to estimate your monthly bill.</p>
 
       <div className="calculator-fields">
-        <label>
-          Users
-          <input type="number" min="1" step="1" value={usage.users} onChange={onChange('users')} />
-        </label>
-        <label>
-          Projects
-          <input type="number" min="1" step="1" value={usage.projects} onChange={onChange('projects')} />
-        </label>
-        <label>
-          Env keys (Per Project)
-          <input type="number" min="1" step="1" value={usage.envKeys} onChange={onChange('envKeys')} />
-        </label>
-        <label>
-          API keys
-          <input type="number" min="1" step="1" value={usage.apiKeys} onChange={onChange('apiKeys')} />
-        </label>
-        <label>
-          Config files (Not per project, in total)
-          <input type="number" min="1" step="1" value={usage.configFiles} onChange={onChange('configFiles')} />
-        </label>
-        <label>
-          Support tier
-          <select value={usage.supportTier} onChange={onChange('supportTier')}>
-            <option value="free">Free (E-Mail)</option>
-            <option value="basic">Basic (Free + Scheduled meetings)</option>
-            <option value="priority">Priority (Basic + Faster response times)</option>
-          </select>
-        </label>
+        <div className="usage-field-group">
+          <label>
+            <span className="field-label">Users: <strong>{usage.users}</strong></span>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              step="1"
+              value={usage.users}
+              onChange={onChange('users')}
+              className="slider"
+            />
+          </label>
+          <input
+            type="number"
+            min="1"
+            step="1"
+            value={usage.users}
+            onChange={onChange('users')}
+            className="counter-input"
+          />
+        </div>
+
+        <div className="usage-field-group">
+          <label>
+            <span className="field-label">Projects: <strong>{usage.projects}</strong></span>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              step="1"
+              value={usage.projects}
+              onChange={onChange('projects')}
+              className="slider"
+            />
+          </label>
+          <input
+            type="number"
+            min="1"
+            step="1"
+            value={usage.projects}
+            onChange={onChange('projects')}
+            className="counter-input"
+          />
+        </div>
+      </div>
+
+      <div className="unlimited-features">
+        <h3>Unlimited Features *</h3>
+        <ul>
+          <li>Core N-Keys functionality</li>
+          <li>Environment Variables</li>
+          <li>Configuration Files</li>
+          <li>API Keys</li>
+          <li>Project Deployments (Dev, Staging, Prod, etc.)</li>
+        </ul>
+        <p className="fair-use-note">* Subject to fair use policy</p>
       </div>
     </div>
   )

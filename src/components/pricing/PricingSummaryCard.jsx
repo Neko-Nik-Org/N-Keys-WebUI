@@ -11,13 +11,9 @@ function PricingSummaryCard({ pricing, onJoinWaitlist, onContactSales, onOpenRat
       </div>
 
       <div className="pricing-total-row pricing-total-row-large">
-        <span>Total (rounded up) [ {formatUsd(pricing.subtotalRaw, 3)} ]</span>
-        <strong>{formatUsd(pricing.billedTotal, 2)}</strong>
+        <span>Total Monthly Cost</span>
+        <strong>{formatUsd(pricing.billedTotal)}</strong>
       </div>
-
-      {pricing.freeTierApplied && (
-        <p className="pricing-free-tier-note">Free tier applied. Your current usage total is under $3.</p>
-      )}
 
       <h3 className="pricing-subtitle">Cost Breakdown</h3>
       <ul className="pricing-breakdown-list pricing-breakdown-list-simple">
@@ -25,7 +21,7 @@ function PricingSummaryCard({ pricing, onJoinWaitlist, onContactSales, onOpenRat
           <li key={item.name}>
             <span>{item.name}</span>
             <span>
-              {item.units} x {formatUsd(item.rate, 3)} = {formatUsd(item.total, 3)}
+              {item.units} x {formatUsd(item.rate)} = {formatUsd(item.total)}
             </span>
           </li>
         ))}
@@ -39,6 +35,10 @@ function PricingSummaryCard({ pricing, onJoinWaitlist, onContactSales, onOpenRat
           Contact Sales
         </button>
       </div>
+
+      <p className="early-adopter-note">
+        🚀 <strong>Early adopters:</strong> Get full access to N-Keys completely free in exchange for feedback and help us shape the future of the platform.
+      </p>
     </div>
   )
 }

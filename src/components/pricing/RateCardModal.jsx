@@ -22,21 +22,24 @@ function RateCardModal({ isOpen, onClose, weights }) {
         </div>
 
         <ul className="pricing-rate-list">
-          <li><span>Per user</span><span>{formatUsd(weights.user, 3)}</span></li>
-          <li><span>Per project</span><span>{formatUsd(weights.project, 3)}</span></li>
-          <li><span>Per env key (Per Project)</span><span>{formatUsd(weights.envKey, 3)}</span></li>
-          <li><span>Per api key</span><span>{formatUsd(weights.apiKey, 3)}</span></li>
-          <li><span>Per config file</span><span>{formatUsd(weights.configFile, 3)}</span></li>
-          <li><span>Basic support (per 10 users)</span><span>{formatUsd(weights.basicSupportPerBand, 3)}</span></li>
-          <li><span>Priority support (per 10 users)</span><span>{formatUsd(weights.prioritySupportPerBand, 3)}</span></li>
+          <li><span>Per user</span><span>{formatUsd(weights.user)}</span></li>
+          <li><span>Per project</span><span>{formatUsd(weights.project)}</span></li>
         </ul>
 
-        <h4 className="pricing-subtitle">Free Tier Limits</h4>
-        <p className="pricing-free-tier-note">
-            Less than $3 total monthly cost is waived under the free tier.
+        <h4 className="pricing-subtitle">Unlimited Included</h4>
+        <ul className="pricing-rate-list">
+          <li><span>✓ Core N-Keys functionality</span><span></span></li>
+          <li><span>✓ Environment Variables</span><span>Unlimited*</span></li>
+          <li><span>✓ Configuration Files</span><span>Unlimited*</span></li>
+          <li><span>✓ API Keys</span><span>Unlimited*</span></li>
+          <li><span>✓ Project Deployments (Dev, Staging, Prod, etc.)</span><span>Unlimited*</span></li>
+        </ul>
+
+        <p className="pricing-free-tier-note" style={{ marginTop: '1rem' }}>
+          * Subject to fair use policy to ensure service quality for all users. We monitor usage patterns and will contact you if excessive usage is detected.
         </p>
         <p className="pricing-free-tier-note">
-            Non-profit / Open-source / Educational organizations can apply for a free tier waiver regardless of usage. Contact us for details.
+          Non-profit / Open-source / Educational organizations can apply for discounted or free pricing. Contact us for details.
         </p>
       </div>
     </div>
