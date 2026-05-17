@@ -8,6 +8,7 @@ const navItems = [
   { to: '/roadmap', label: 'Roadmap' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/contact', label: 'Contact' },
+  { to: '/hiring', label: 'Hiring' },
   { to: '/waitlist', label: 'Waitlist' },
 ]
 

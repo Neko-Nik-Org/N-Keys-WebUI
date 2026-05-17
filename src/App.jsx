@@ -6,6 +6,7 @@ import ContactPage from './pages/ContactPage'
 import PricingPage from './pages/PricingPage'
 import HomePage from './pages/HomePage'
 import RoadmapPage from './pages/RoadmapPage'
+import HiringPage from './pages/HiringPage'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="roadmap" element={<RoadmapPage />} />
         <Route path="pricing" element={<PricingPage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="hiring" element={<HiringPage />} />
         <Route path="waitlist" element={<WaitlistPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
