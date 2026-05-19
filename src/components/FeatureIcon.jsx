@@ -17,11 +17,11 @@ const ICON_PATHS = {
 function FeatureIcon({ icon }) {
   const path = ICON_PATHS[icon] || ICON_PATHS['shield'];
   return (
-    <span className="feature-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <div className="w-14 h-14 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center text-brand-primary mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-inner">
+      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d={path} strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    </span>
+    </div>
   );
 }
 

@@ -1,3 +1,18 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark, .dark *));
+
+@theme {
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-hover: var(--brand-hover);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+}
+
 /* ── Enterprise/Custom Banner ───────────────────────────── */
 .entp-banner {
   width: 100%;
@@ -8,8 +23,9 @@
   background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);
   transform: skewX(-8deg);
-  box-shadow: 0 4px 24px rgba(2,181,184,0.10);
+  box-shadow: 0 4px 24px rgba(2, 181, 184, 0.10);
 }
+
 .entp-banner-content {
   display: flex;
   align-items: center;
@@ -18,6 +34,7 @@
   padding: 0.7rem 2.2rem 0.7rem 2.7rem;
   transform: skewX(8deg);
 }
+
 .entp-title {
   color: #fff;
   font-size: 1.13rem;
@@ -25,6 +42,7 @@
   letter-spacing: 0.01em;
   margin-right: 1.1rem;
 }
+
 .entp-desc {
   color: #e6f9f9;
   font-size: 0.98rem;
@@ -32,12 +50,14 @@
   flex: 1 1 auto;
   margin-right: 1.2rem;
 }
+
 .entp-btn {
   font-size: 0.98rem;
   padding: 0.5em 1.5em;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(2,181,184,0.13);
+  box-shadow: 0 2px 8px rgba(2, 181, 184, 0.13);
 }
+
 @media (max-width: 700px) {
   .entp-banner-content {
     flex-direction: column;
@@ -45,15 +65,18 @@
     gap: 0.7rem;
     padding: 1.1rem 1.1rem 1.1rem 1.5rem;
   }
+
   .entp-title {
     margin-right: 0;
     margin-bottom: 0.3em;
   }
+
   .entp-desc {
     margin-right: 0;
     margin-bottom: 0.5em;
   }
 }
+
 :root {
   --bg: #f8fafc;
   --surface: #ffffff;
@@ -90,27 +113,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f172a;
-    --surface: #1a2332;
-    --surface-soft: #242f3f;
-    --text: #f0f4f8;
-    --text-muted: #a0afc0;
-    --border: #2d3d50;
-    --shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
-  }
+.dark {
+  --bg: #0f172a;
+  --surface: #1a2332;
+  --surface-soft: #242f3f;
+  --text: #f0f4f8;
+  --text-muted: #a0afc0;
+  --border: #2d3d50;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
 
-  body {
-    background: radial-gradient(circle at top right, rgba(2, 181, 184, 0.07) 0%, #0a1120 38%);
-  }
+.dark body {
+  background-color: #0b1121;
+  background-image: radial-gradient(ellipse at top, rgba(2, 181, 184, 0.12), transparent 70%);
+  background-attachment: fixed;
+}
 
-  .form input,
-  .form textarea {
-    background: var(--surface);
-    border-color: var(--border);
-    color: var(--text);
-  }
+.dark .form input,
+.dark .form textarea {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
 }
 
 /* ── Animations ─────────────────────────────────────── */
@@ -119,6 +142,7 @@
     opacity: 0;
     transform: translateY(18px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -126,11 +150,17 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -147,7 +177,9 @@
 body {
   margin: 0;
   color: var(--text);
-  background: radial-gradient(circle at top right, #ecfeff 0%, #f8fafc 38%);
+  background-color: #f8fafc;
+  background-image: radial-gradient(ellipse at top, rgba(2, 181, 184, 0.08), transparent 70%);
+  background-attachment: fixed;
 }
 
 a {
@@ -184,10 +216,8 @@ main {
   border-bottom: 1px solid var(--border);
 }
 
-@media (prefers-color-scheme: dark) {
-  .site-header {
-    background: rgba(15, 23, 42, 0.85);
-  }
+.dark .site-header {
+  background: rgba(15, 23, 42, 0.85);
 }
 
 .nav-wrap {
@@ -392,11 +422,9 @@ main {
 
 .open-source-note {
   width: min(760px, 100%);
-  background: linear-gradient(
-    135deg,
-    rgba(2, 181, 184, 0.08) 0%,
-    rgba(1, 120, 215, 0.08) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(2, 181, 184, 0.08) 0%,
+      rgba(1, 120, 215, 0.08) 100%);
   border: 1px solid rgba(2, 181, 184, 0.3);
   border-radius: var(--radius-md);
   padding: var(--space-5) var(--space-6);
@@ -515,18 +543,21 @@ main {
 
 .benefit-item {
   display: flex;
-  align-items: center; /* changed */
+  align-items: center;
+  /* changed */
   gap: var(--space-3);
   padding: var(--space-3) 0;
 }
 
 .benefit-item p {
-  margin: 0; /* important */
+  margin: 0;
+  /* important */
   line-height: 1.5;
 }
 
 .benefit-icon {
-  flex-shrink: 0; /* prevents squishing */
+  flex-shrink: 0;
+  /* prevents squishing */
   width: 24px;
   height: 24px;
 
@@ -558,11 +589,25 @@ main {
   border-color: rgba(2, 181, 184, 0.3);
 }
 
-.card:nth-child(2) { animation-delay: 0.07s; }
-.card:nth-child(3) { animation-delay: 0.14s; }
-.card:nth-child(4) { animation-delay: 0.21s; }
-.card:nth-child(5) { animation-delay: 0.28s; }
-.card:nth-child(6) { animation-delay: 0.35s; }
+.card:nth-child(2) {
+  animation-delay: 0.07s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.14s;
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.21s;
+}
+
+.card:nth-child(5) {
+  animation-delay: 0.28s;
+}
+
+.card:nth-child(6) {
+  animation-delay: 0.35s;
+}
 
 .card h3,
 .card h2 {
@@ -624,6 +669,7 @@ main {
   margin-right: auto;
   margin-bottom: var(--space-3);
 }
+
 .pill {
   border: none;
   background: none;
@@ -637,11 +683,13 @@ main {
   position: relative;
   outline: none;
 }
+
 .pill.active {
   background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
   color: #fff;
   box-shadow: 0 2px 8px rgba(2, 181, 184, 0.13);
 }
+
 .savings-badge {
   display: inline-block;
   background: #e6f9f9;
@@ -654,6 +702,7 @@ main {
   vertical-align: middle;
   letter-spacing: 0.01em;
 }
+
 .plan-savings {
   display: inline-block;
   background: #e6f9f9;
@@ -666,6 +715,7 @@ main {
   vertical-align: middle;
   letter-spacing: 0.01em;
 }
+
 .billing-note {
   color: var(--brand-primary);
   background: #e6f9f9;
@@ -1204,6 +1254,7 @@ main {
 }
 
 @media (max-width: 960px) {
+
   .simple-grid,
   .feature-grid,
   .pricing-grid,
@@ -1236,9 +1287,19 @@ main {
 
 /* ── Hamburger breakpoint ────────────────────────────── */
 @media (max-width: 768px) {
-  .nav-desktop { display: none; }
-  .hamburger   { display: inline-flex; align-items: center; justify-content: center; }
-  .nav-cta     { display: none; }
+  .nav-desktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-cta {
+    display: none;
+  }
 }
 
 @media (max-width: 680px) {
