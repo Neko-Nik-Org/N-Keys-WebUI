@@ -1,62 +1,36 @@
-# N-Keys Web UI
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-N-Keys is a developer-focused platform to securely manage and sync environment variables and configuration data across servers and stages.
+## Getting Started
 
-This repository currently contains the web application (marketing + onboarding surface), and is planned to evolve into dashboard and payments-related flows. But still keeping all open-source and public.
-
-## Product Direction
-
-N-Keys focuses on:
-- Secure, encrypted environment variable management.
-- Dashboard management of secrets and configuration.
-- Secure server-to-server environment sync too.
-- Docker Compose and raw env-var workflows.
-- CLI and cURL-friendly operations.
-- API key-based authentication.
-- Stage-aware config management (prod/dev/staging/custom names).
-- Rust-first backend with Argon2-based key protection.
-- Economical pricing for teams.
-
-## Tech Stack
-
-- React 19
-- React Router 7
-- Vite 8
-- ESLint 10
-- Wrangler (Cloudflare deploy flow)
-
-## Local Development
-
-Prerequisites:
-- Node.js 20+
-- npm
-
-Install and run:
+First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Build and lint:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-npm run lint
-npm run build
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Preview/deploy scripts:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```bash
-npm run preview
-npm run deploy
-```
+## Learn More
 
-## Contribution Guidelines
+To learn more about Next.js, take a look at the following resources:
 
-For contributions, please follow the guidelines below to ensure code quality, security, and maintainability.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Please include in PRs:
-- What changed and why.
-- Screenshots for UI changes.
-- Any migration or config notes.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
