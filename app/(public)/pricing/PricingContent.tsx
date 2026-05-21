@@ -9,6 +9,11 @@ import { calculatePricing } from "@/utils/pricingCalculator"
 import { useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 
+interface PricingFAQ {
+    question: string;
+    answer: string;
+}
+
 export default function PricingContent() {
     const router = useRouter()
     const [usage, setUsage] = useState(DEFAULT_USAGE)
@@ -18,7 +23,7 @@ export default function PricingContent() {
         router.push('/waitlist')
     }
 
-    const updateUsageValue = (field: string) => (event: any) => {
+    const updateUsageValue = (field: string) => (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const value = event.target.value
         setUsage((current) => ({
             ...current,
@@ -68,7 +73,7 @@ export default function PricingContent() {
                     </div>
 
                     <div className="space-y-4" role="list">
-                        {PRICING_FAQS.map((faq: any) => (
+                        {PRICING_FAQS.map((faq: PricingFAQ) => (
                             <details key={faq.question} className="group bg-white dark:bg-[#131c2c] border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm open:shadow-md transition-all duration-300" role="listitem">
                                 <summary className="flex items-center justify-between gap-4 p-6 font-semibold text-slate-900 dark:text-white cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-brand-primary">
                                     {faq.question}

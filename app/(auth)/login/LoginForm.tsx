@@ -52,8 +52,9 @@ function LoginFormContent() {
             // Navigate and clear router cache
             router.push(nextUrl);
             router.refresh();
-        } catch (err: any) {
-            setError(err.message || "An error occurred during login.");
+        } catch (err) {
+            const errorMsg = err instanceof Error ? err.message : "An error occurred during login.";
+            setError(errorMsg);
         } finally {
             setIsLoading(false);
         }
@@ -118,7 +119,7 @@ function LoginFormContent() {
             </form>
 
             <div className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
-                Don't have an account? <Link href="/waitlist" className="font-medium text-brand-primary hover:text-brand-hover">Join the waitlist</Link>
+                Don&apos;t have an account? <Link href="/waitlist" className="font-medium text-brand-primary hover:text-brand-hover">Join the waitlist</Link>
             </div>
         </div>
     );

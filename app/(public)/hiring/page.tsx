@@ -40,7 +40,7 @@ export default function HiringPage() {
                                 {/* What We're Looking For */}
                                 <div className="space-y-4">
                                     <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">
-                                        What We're Looking For
+                                        What We&apos;re Looking For
                                     </h3>
                                     <ul className="space-y-3">
                                         {[

@@ -21,8 +21,20 @@ const fetchDashboardStats = async () => {
     };
 };
 
+interface DashboardStats {
+    activeEnvs: number;
+    totalKeys: number;
+    syncEvents: number;
+    systemStatus: string;
+    recentActivity: Array<{
+        id: number;
+        action: string;
+        time: string;
+    }>;
+}
+
 export default function DashboardContent() {
-    const [stats, setStats] = useState<any>(null);
+    const [stats, setStats] = useState<DashboardStats | null>(null);
     const [loading, setLoading] = useState(true);
 
     const loadStats = async () => {
@@ -33,7 +45,18 @@ export default function DashboardContent() {
     };
 
     useEffect(() => {
-        loadStats();
+        let active = true;
+        const init = async () => {
+            const data = await fetchDashboardStats();
+            if (active) {
+                setStats(data);
+                setLoading(false);
+            }
+        };
+        init();
+        return () => {
+            active = false;
+        };
     }, []);
 
     return (
@@ -41,7 +64,7 @@ export default function DashboardContent() {
             <div className="flex justify-between items-center mb-8">
                 <div>
                     <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Overview</h1>
-                    <p className="text-slate-500 dark:text-slate-400 mt-1">Welcome back! Here's what's happening with your environments.</p>
+                    <p className="text-slate-500 dark:text-slate-400 mt-1">Welcome back! Here&apos;s what&apos;s happening with your environments.</p>
                 </div>
                 <button 
                     onClick={loadStats} 
@@ -68,7 +91,7 @@ export default function DashboardContent() {
                                 <Server className="w-5 h-5" />
                             </div>
                         </div>
-                        <div className="text-3xl font-bold text-slate-900 dark:text-white">{stats.activeEnvs}</div>
+                        <div className="text-3xl font-bold text-slate-900 dark:text-white">{stats?.activeEnvs}</div>
                         <div className="text-sm text-green-600 dark:text-green-400 mt-2 font-medium flex items-center">
                             <span>+2 from last month</span>
                         </div>
@@ -81,7 +104,7 @@ export default function DashboardContent() {
                                 <Shield className="w-5 h-5" />
                             </div>
                         </div>
-                        <div className="text-3xl font-bold text-slate-900 dark:text-white">{stats.totalKeys}</div>
+                        <div className="text-3xl font-bold text-slate-900 dark:text-white">{stats?.totalKeys}</div>
                         <div className="text-sm text-slate-500 dark:text-slate-400 mt-2 font-medium flex items-center">
                             <span>Across all environments</span>
                         </div>
@@ -94,9 +117,9 @@ export default function DashboardContent() {
                                 <Activity className="w-5 h-5" />
                             </div>
                         </div>
-                        <div className="text-3xl font-bold text-slate-900 dark:text-white">{stats.syncEvents.toLocaleString()}</div>
+                        <div className="text-3xl font-bold text-slate-900 dark:text-white">{stats?.syncEvents.toLocaleString()}</div>
                         <div className="text-sm text-green-600 dark:text-green-400 mt-2 font-medium flex items-center">
-                            <span>System Status: {stats.systemStatus}</span>
+                            <span>System Status: {stats?.systemStatus}</span>
                         </div>
                     </div>
                 </div>
@@ -115,7 +138,7 @@ export default function DashboardContent() {
                     </div>
                 ) : (
                     <div className="divide-y divide-slate-200 dark:divide-slate-800">
-                        {stats.recentActivity.map((activity: any) => (
+                        {stats?.recentActivity.map((activity) => (
                             <div key={activity.id} className="px-6 py-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                 <div className="flex items-center gap-4">
                                     <div className="w-2 h-2 rounded-full bg-brand-primary"></div>

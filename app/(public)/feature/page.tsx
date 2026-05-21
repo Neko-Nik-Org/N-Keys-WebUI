@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   },
 };
 
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
 export default function FeaturesPage() {
     return (
         <main>
@@ -24,7 +30,7 @@ export default function FeaturesPage() {
             {/* Features Grid Section */}
             <section className="px-6 pb-20 lg:pb-28">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {features.map((feature: any) => (
+                    {features.map((feature: Feature) => (
                         <article 
                             key={feature.title} 
                             className="p-8 bg-white dark:bg-[#131c2c] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-brand-primary/10 hover:border-brand-primary/40 dark:hover:border-brand-primary/40 transition-all duration-300 group flex flex-col"
@@ -57,7 +63,7 @@ export default function FeaturesPage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {benefits.map((benefit: any) => (
+                        {benefits.map((benefit: string) => (
                             <article 
                                 key={benefit} 
                                 className="flex items-start gap-4 p-6 bg-white dark:bg-[#131c2c] border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brand-primary/40 dark:hover:border-brand-primary/40 hover:shadow-lg transition-all duration-300 group"

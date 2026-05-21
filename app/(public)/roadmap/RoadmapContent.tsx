@@ -4,6 +4,15 @@ import PageHeader from '@/components/PageHeader'
 import { roadmapEntries } from '@/data/roadmapData'
 import { useState } from 'react'
 
+interface RoadmapEntry {
+    id: string;
+    title: string;
+    description: string;
+    range: string;
+    done: boolean;
+    learnMoreUrl?: string;
+}
+
 export default function RoadmapContent() {
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -21,7 +30,7 @@ export default function RoadmapContent() {
         )
     }
 
-    const filteredEntries = roadmapEntries.filter((entry: any) => {
+    const filteredEntries = roadmapEntries.filter((entry: RoadmapEntry) => {
         const lowerSearchTerm = searchTerm.toLowerCase()
         return (
             entry.title.toLowerCase().includes(lowerSearchTerm) ||
@@ -61,7 +70,7 @@ export default function RoadmapContent() {
                             No roadmap items match your search.
                         </div>
                     ) : (
-                        filteredEntries.map((entry: any) => (
+                        filteredEntries.map((entry: RoadmapEntry) => (
                             <article 
                                 key={entry.id} 
                                 className={`p-6 sm:p-8 bg-white dark:bg-[#131c2c] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-black/50 hover:border-brand-primary/40 dark:hover:border-brand-primary/40 transition-all duration-300 relative overflow-hidden group ${entry.done ? 'opacity-70 hover:opacity-100' : ''}`}

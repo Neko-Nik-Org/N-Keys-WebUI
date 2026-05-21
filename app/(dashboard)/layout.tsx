@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Settings, Key, Server, LogOut, Menu } from "lucide-react";
+import { LayoutDashboard, LogOut, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useSetAtom, useAtomValue } from "jotai";
 import { userAtom, csrfTokenAtom } from "@/store/authStore";
@@ -15,14 +15,28 @@ export default function DashboardLayout({
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [user, setUserLocal] = useState<any>(null); // Hydration safety
+  interface UserType {
+    name?: string | null;
+    email?: string | null;
+    [key: string]: unknown;
+  }
+
+  const [user, setUserLocal] = useState<UserType | null>(null); // Hydration safety
 
   const setUser = useSetAtom(userAtom);
   const setCsrfToken = useSetAtom(csrfTokenAtom);
   const jotaiUser = useAtomValue(userAtom);
 
   useEffect(() => {
-    setUserLocal(jotaiUser);
+    let active = true;
+    Promise.resolve().then(() => {
+      if (active) {
+        setUserLocal(jotaiUser);
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, [jotaiUser]);
 
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);

@@ -1,6 +1,6 @@
 "use client";
 
-import { contactFormSendTo, submitContactForm } from "@/api/contactFormApi"
+import { contactFormSendTo, submitContactForm } from "@/utils/contactFormApi"
 import CfTurnstileWidget from "@/components/CfTurnstileWidget"
 import PageHeader from "@/components/PageHeader"
 import { useState } from "react"
@@ -35,8 +35,9 @@ export default function ContactContent() {
             setSubmitMessage('Message sent successfully.')
             form.reset()
             setCfTurnstileToken('')
-        } catch (error: any) {
-            setSubmitMessage(error.message || 'Failed to send message. Please try again.')
+        } catch (error) {
+            const errorMsg = error instanceof Error ? error.message : 'Failed to send message. Please try again.';
+            setSubmitMessage(errorMsg);
         } finally {
             setIsSubmitting(false)
         }

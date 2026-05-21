@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import PageHeader from '@/components/PageHeader'
 import CfTurnstileWidget from '@/components/CfTurnstileWidget'
-import { contactFormSendTo, submitContactForm } from '@/api/contactFormApi'
+import { contactFormSendTo, submitContactForm } from '@/utils/contactFormApi'
 
 export default function WaitlistContent() {
     const [cfTurnstileToken, setCfTurnstileToken] = useState('')
@@ -35,8 +35,9 @@ export default function WaitlistContent() {
             setSubmitMessage('Waitlist request sent successfully.')
             form.reset()
             setCfTurnstileToken('')
-        } catch (error: any) {
-            setSubmitMessage(error.message || 'Failed to send request. Please try again.')
+        } catch (error) {
+            const errorMsg = error instanceof Error ? error.message : 'Failed to send request. Please try again.';
+            setSubmitMessage(errorMsg);
         } finally {
             setIsSubmitting(false)
         }
