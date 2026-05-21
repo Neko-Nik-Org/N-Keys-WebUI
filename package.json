@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages"
+    "next:build": "next build"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "^1.5.2",
