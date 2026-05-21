@@ -1,5 +1,5 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "n-keys-ui",
   "compatibility_date": "2024-05-20",
   "pages_build_output_dir": ".vercel/output/static",
@@ -10,6 +10,7 @@
     "nodejs_compat"
   ],
   "assets": {
-    "directory": ".vercel/output/static"
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
   }
 }
