@@ -1,0 +1,9 @@
+services:
+  ui:
+    image: neko7nik/n-keys-ui:latest
+    container_name: n-keys-ui
+
+    ports:
+      - "127.0.0.1:3000:3000"
+
+    restart: always
